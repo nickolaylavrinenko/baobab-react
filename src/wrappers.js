@@ -4,7 +4,7 @@
  *
  * ES6 wrapper component.
  */
-import React from 'react/addons';
+import React from 'react';
 import PropTypes from './utils/prop-types.js';
 
 /**
@@ -36,11 +36,11 @@ function renderChildren(children, props) {
     return null;
 
   if (!Array.isArray(children)) {
-    return React.addons.cloneWithProps(children, props);
+    return React.cloneElement(children, props);
   }
   else {
     var group = React.Children.map(children, function(child) {
-      return React.addons.cloneWithProps(child, props);
+      return React.cloneElement(child, props);
     });
 
     return <span>{group}</span>;
